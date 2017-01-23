@@ -1,0 +1,84 @@
+{
+  "name": "five-minute-journal",
+  "version": "1.0.0",
+  "private": false,
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "author": "Thomas Reggi",
+  "description": "Interface to fill out Five Minute Journal via terminal.",
+  "scripts": {
+    "compile": "babel ./src --out-dir ./lib",
+    "coverage": "NODE_ENV=test nyc ava",
+    "style": "standard",
+    "test": "ava"
+  },
+  "bin": {
+    "five-minute-journal": "./lib/index.js",
+    "five-min-journal": "./lib/index.js",
+    "fmj": "./lib/index.js"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^3.0.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.18.0",
+    "nyc": "^10.0.0",
+    "standard": "^8.6.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "files": [
+      "test"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "stage-0",
+      "stage-1",
+      "stage-2",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "env": {
+      "production": {
+        "ignore": [
+          "test/**"
+        ]
+      },
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "lib"
+    ]
+  },
+  "dependencies": {
+    "babel-runtime": "^6.22.0",
+    "bluebird": "^3.4.7",
+    "fs-extra": "^2.0.0",
+    "moment": "^2.17.1"
+  }
+}
